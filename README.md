@@ -16,7 +16,7 @@ Demo at: [Reaction time based game](https://emerengg.github.io/reaction-time-bas
 
 ## Server
 
-## Installation
+### Installation
   ```
     cd server
     pipenv install
@@ -28,7 +28,7 @@ Demo at: [Reaction time based game](https://emerengg.github.io/reaction-time-bas
     python manage.py runserver
   ```
 
-### Testing
+### Tests
   ```
     cd server/src
     python manage.py test
@@ -49,7 +49,7 @@ Demo at: [Reaction time based game](https://emerengg.github.io/reaction-time-bas
     npm start
   ```
 
-### Testing
+### Tests
   ```
     cd client
     npm test
