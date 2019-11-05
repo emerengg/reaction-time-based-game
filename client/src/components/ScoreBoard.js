@@ -5,12 +5,12 @@ import { postScore } from './api/fetch'
 class ScoreBoard extends Component {
     constructor(props){
         super(props);
-        const {id, name, score} = this.props.player
+        const {id, name, score} = this.props;
         this.state = {
             id,
             name,
             score,
-            loading: false
+            isLoading: false
         }
     }
 
@@ -18,7 +18,7 @@ class ScoreBoard extends Component {
         const name = event.target.value;
         this.setState({
             name
-        })
+        });
     }
 
     handleInputSelect = () => {
@@ -34,21 +34,20 @@ class ScoreBoard extends Component {
 
     saveScore = (event) => {
         event.preventDefault();
-
-        const { name } = this.state
-        const { input, validationError } = this.refs
+        const { name } = this.state;
+        const { input, validationError } = this.refs;
 
         validationError.innerHTML = "";
         input.classList.remove("error");
 
-        if(name !== null && name.length > 0){
-            if(name.length < 10){
+        if(name && name.length > 0){
+            if(name.length <= 10){
                 this.setState({
-                    loading: true
+                    isLoading: true
                 }, () => {
                     this.post()
                 })
-            }else if(name.length > 10){
+            }else if(name.length >= 10){
                 validationError.innerHTML = "Name can't be longer than 9 characters!";
                 input.className = "error";
             }
@@ -60,40 +59,40 @@ class ScoreBoard extends Component {
 
     // fetching scores
     post = async () => {
-        const { name, score } = this.state
+        const { name, score } = this.state;
         await postScore(name, score)
             .then(res => {
-                const { id, name, score } = res
+                const { id, name, score } = res;
                 this.setState({
                     id,
                     name,
                     score
                 }, () => {
                     this.props.handleSaveScore(this.state)
-                })
+                });
             })
             .catch(err => {
                 this.setState({
-                    loading: false
+                    isLoading: false
                 }, () => {
                     const { input, validationError } = this.refs
                     validationError.innerHTML = "Couldn't save the score!";
                     input.className = "error";
-                })
-            })
+                });
+            });
     }
 
     render() {
-        const { name, score, loading } = this.state
+        const { name, score, isLoading } = this.state
         return (
             <div className="scoreboard">
                 <h1>Time's up!</h1>
                 <h2>Your score: {score}</h2>
-                {loading ? 
+                {isLoading ? (
                     <div className="loading">
                         <div className="loader"></div>
                     </div>
-                :
+                ) : (
                     <form className="save-form">
                         <input 
                             type="text" 
@@ -109,7 +108,7 @@ class ScoreBoard extends Component {
                         <div className="valdiation-error" style={{color: 'red', fontSize: '1em'}} ref="validationError" ><p></p></div>
                         <button type="submit" className="btn-save-score" onClick={this.saveScore}>Save score</button>
                     </form>
-                }
+                )}
             </div>
 
         );

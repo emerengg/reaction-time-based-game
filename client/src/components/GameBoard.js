@@ -22,7 +22,6 @@ let tiles = [
     { id: 16, status: false }
 ]
 
-
 if(window.innerWidth <= 600){
     tiles = tiles.slice(0, 12);
 }
@@ -34,12 +33,12 @@ class GameBoard extends Component {
         this.state = {
             tiles: tiles,
             activeTiles: tiles,
-        }
+        };
     }
 
     static propTypes = {
         start: PropTypes.bool.isRequired,
-        timeIsUp: PropTypes.bool.isRequired,
+        isTimeUp: PropTypes.bool.isRequired,
         score: PropTypes.func.isRequired,
         timer: PropTypes.func.isRequired, 
         pause: PropTypes.func.isRequired
@@ -47,14 +46,14 @@ class GameBoard extends Component {
 
     // change amount of tiles depending of the window size
     updateDimensions = () => {
-        if(window.innerWidth < 600){
+        if (window.innerWidth < 600) {
             this.setState({
                 tiles: this.state.tiles.filter(tile => tile.id < 13)
-            })
-        }else if (window.innerWidth > 600){
+            });
+        } else if (window.innerWidth > 600) {
             this.setState({
                 tiles
-            })
+            });
         }
     }
  
@@ -70,63 +69,60 @@ class GameBoard extends Component {
         }
     }
 
-
     componentDidUpdate(prevProps, prevState) {
-        if (this.props.start !== prevProps.start) {
+        const { start, isTimeUp, timer, pause } = this.props;
+        if (start !== prevProps.start) {
             this.initTiles();
-        }else if(this.props.timeIsUp !== prevProps.timeIsUp){
-            this.props.timer()
-            this.props.pause()
+        } else if (isTimeUp !== prevProps.isTimeUp) {
+            timer();
+            pause();
         }
     }
 
     initTiles = () => {
         let { tiles } = this.state;
-        let activeTiles = tiles
+        let activeTiles = tiles;
         
         for(let x = 0; x < 3; x++){
-            const randomTile = activeTiles[Math.floor(Math.random() * activeTiles.length)]
-            tiles = tiles.map(tile => tile === randomTile ? { id: randomTile.id, status: !randomTile.status } : tile)
-            activeTiles = tiles.filter(tile => !tile.status)
+            const randomTile = activeTiles[Math.floor(Math.random() * activeTiles.length)];
+            tiles = tiles.map(tile => tile === randomTile ? { id: randomTile.id, status: !randomTile.status } : tile);
+            activeTiles = tiles.filter(tile => !tile.status);
         }
 
         this.setState({
             tiles,
             activeTiles
-        })
+        });
     }
 
     handleTileClick = ({id, status}) => {
-        let score;
-        if(status){
+        let hasScored;
+        if (status) {
             const { tiles } = this.state;
 
-            const activeTiles = tiles.filter(tile => !tile.status)
-            const randomTile = activeTiles[Math.floor(Math.random() * activeTiles.length)]
-
+            const activeTiles = tiles.filter(tile => !tile.status);
+            const randomTile = activeTiles[Math.floor(Math.random() * activeTiles.length)];
 
             const newTiles = tiles.map(tile => {
                 if (tile.id === id){
-                    return { id, status: !tile.status }
+                    return { id, status: !tile.status };
                 }else if (tile === randomTile) {
-                    return { id: randomTile.id, status: !randomTile.status }
+                    return { id: randomTile.id, status: !randomTile.status };
                 }
-                return tile
+                return tile;
             })
-
-            score = true;
+            hasScored = true;
             this.setState({
-                tiles: newTiles,
+                tiles: newTiles
             })
-
-        }else {
-            score = false
+        } else {
+            hasScored = false;
         }
-        this.props.score(score)
+        this.props.score(hasScored);
     }
 
     render() {
-        const { tiles } = this.state
+        const { tiles } = this.state;
         return (
             <div className="grid" data-testid="grid">
                 {tiles.map(tile => <Tile key={tile.id} handleTileClick={this.handleTileClick} tile={tile}/>)}

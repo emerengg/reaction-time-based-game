@@ -10,9 +10,7 @@ function StartScreen(props) {
                 <h1>REACTION TIME BASED GAME</h1>
                 <h3>Click on the <span>blue tiles</span> to get points.</h3>
             </div>
-
             <button type="button" data-testid="btn-start" className="btn-start" onClick={() => props.handleStart()}><i className="fas fa-play"></i></button>
-            
             <Reference />
         </div>
     )

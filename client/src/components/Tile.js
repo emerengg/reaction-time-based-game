@@ -12,15 +12,16 @@ class Tile extends Component {
     }
 
     tileClick = () => {
-        const { id, status } = this.props.tile
-        this.props.handleTileClick({id, status})
+        const { id, status } = this.props.tile;
+        this.props.handleTileClick({id, status});
     }
 
     render() {
-        const { status } = this.props.tile 
-
-        let tileStyle = { transition: "0.115s" }
-        status ? tileStyle.backgroundColor = '#557a95' : tileStyle.backgroundColor = 'white'
+        const { status } = this.props.tile ;
+        const tileStyle = { 
+            transition: "0.115s",
+            backgroundColor: status ? '#557a95' : 'white'
+        };
         return (
             <div className="tile" ref="tile" style={tileStyle} onMouseDown={this.tileClick}></div>
         );

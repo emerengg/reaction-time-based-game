@@ -12,23 +12,23 @@ class TimeScore extends Component{
     componentDidUpdate(prevProps) {
         const { score } = this.props
         if (score > prevProps.score) {
-            this.scoreAnimation("rgba(104, 151, 117, 1)")
-        }else if (score < prevProps.score){
-            this.scoreAnimation("rgba(254, 69, 44, 1)")
+            this.scoreAnimation("rgba(104, 151, 117, 1)");
+        } else if (score < prevProps.score) {
+            this.scoreAnimation("rgba(254, 69, 44, 1)");
         }
     }
 
     scoreAnimation = (color) => {
-        const { points } = this.refs
-        points.style.color = color
-        points.style.transition = "0.100s";
+        const { points } = this.refs;
+        points.style.color = color;
+        points.style.transition = "0.100s";;
         setTimeout(() => {
-            points.style.color = "rgba(255, 255, 255)"
-        }, 200)
+            points.style.color = "rgba(255, 255, 255)";
+        }, 200);
     }
 
     render(){
-        const { time, score } = this.props
+        const { time, score } = this.props;
         return (
             <div className="info">
                 <div className="title">
