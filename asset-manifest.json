@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/reaction-time-based-game/static/css/main.dc51769c.chunk.css",
-    "main.js": "/reaction-time-based-game/static/js/main.af3e75ad.chunk.js",
-    "main.js.map": "/reaction-time-based-game/static/js/main.af3e75ad.chunk.js.map",
+    "main.css": "/reaction-time-based-game/static/css/main.13c0fc57.chunk.css",
+    "main.js": "/reaction-time-based-game/static/js/main.467cf44b.chunk.js",
+    "main.js.map": "/reaction-time-based-game/static/js/main.467cf44b.chunk.js.map",
     "runtime~main.js": "/reaction-time-based-game/static/js/runtime~main.68e55641.js",
     "runtime~main.js.map": "/reaction-time-based-game/static/js/runtime~main.68e55641.js.map",
-    "static/js/2.73e1b399.chunk.js": "/reaction-time-based-game/static/js/2.73e1b399.chunk.js",
-    "static/js/2.73e1b399.chunk.js.map": "/reaction-time-based-game/static/js/2.73e1b399.chunk.js.map",
+    "static/js/2.9d524eb9.chunk.js": "/reaction-time-based-game/static/js/2.9d524eb9.chunk.js",
+    "static/js/2.9d524eb9.chunk.js.map": "/reaction-time-based-game/static/js/2.9d524eb9.chunk.js.map",
     "index.html": "/reaction-time-based-game/index.html",
-    "precache-manifest.2b259c5c95f2c5e4eef9d1d11a3aca5e.js": "/reaction-time-based-game/precache-manifest.2b259c5c95f2c5e4eef9d1d11a3aca5e.js",
+    "precache-manifest.ce488a1d528a227acbab3ee6849f78c5.js": "/reaction-time-based-game/precache-manifest.ce488a1d528a227acbab3ee6849f78c5.js",
     "service-worker.js": "/reaction-time-based-game/service-worker.js",
-    "static/css/main.dc51769c.chunk.css.map": "/reaction-time-based-game/static/css/main.dc51769c.chunk.css.map"
+    "static/css/main.13c0fc57.chunk.css.map": "/reaction-time-based-game/static/css/main.13c0fc57.chunk.css.map"
   }
 }
