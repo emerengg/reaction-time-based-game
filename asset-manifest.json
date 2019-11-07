@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/reaction-time-based-game/static/css/main.13c0fc57.chunk.css",
-    "main.js": "/reaction-time-based-game/static/js/main.467cf44b.chunk.js",
-    "main.js.map": "/reaction-time-based-game/static/js/main.467cf44b.chunk.js.map",
+    "main.js": "/reaction-time-based-game/static/js/main.864d5243.chunk.js",
+    "main.js.map": "/reaction-time-based-game/static/js/main.864d5243.chunk.js.map",
     "runtime~main.js": "/reaction-time-based-game/static/js/runtime~main.68e55641.js",
     "runtime~main.js.map": "/reaction-time-based-game/static/js/runtime~main.68e55641.js.map",
     "static/js/2.9d524eb9.chunk.js": "/reaction-time-based-game/static/js/2.9d524eb9.chunk.js",
     "static/js/2.9d524eb9.chunk.js.map": "/reaction-time-based-game/static/js/2.9d524eb9.chunk.js.map",
     "index.html": "/reaction-time-based-game/index.html",
-    "precache-manifest.ce488a1d528a227acbab3ee6849f78c5.js": "/reaction-time-based-game/precache-manifest.ce488a1d528a227acbab3ee6849f78c5.js",
+    "precache-manifest.66e56f6fe3b2c98528e5fe1cf699a47e.js": "/reaction-time-based-game/precache-manifest.66e56f6fe3b2c98528e5fe1cf699a47e.js",
     "service-worker.js": "/reaction-time-based-game/service-worker.js",
     "static/css/main.13c0fc57.chunk.css.map": "/reaction-time-based-game/static/css/main.13c0fc57.chunk.css.map"
   }
